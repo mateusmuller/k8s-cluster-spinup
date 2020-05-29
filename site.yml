@@ -1,0 +1,5 @@
+- name: Configure Docker
+  become: yes
+  hosts: tag_name_k8s
+  roles:
+    - docker
