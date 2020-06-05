@@ -5,7 +5,7 @@ name: k8s-cluster
 
 steps:
 - name: initialize terraform plugins
-  image: plugins/docker  
+  image: ansibleandterraform
   commands:
   - terraform init
 
