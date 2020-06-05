@@ -7,10 +7,7 @@ steps:
 - name: build ansible and terraform image
   image: mateusmuller2/ansibleandterraform
   environment:
-    AWS_ACCESS_KEY_ID:
-      from_secret: aws_access
-    AWS_SECRET_ACCESS_KEY:
-      from_secret: aws_secret
+    AWS_ACCESS_KEY_ID: teste
       
 - name: initialize aws plugin for terraform
   image: mateusmuller2/ansibleandterraform
