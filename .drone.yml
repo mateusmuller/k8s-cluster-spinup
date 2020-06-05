@@ -16,6 +16,6 @@ steps:
   image: mateusmuller2/ansibleandterraform
   commands:
   - terraform init
-  - terraform plan
+  - echo $AWS_ACCESS_KEY_ID
   
 
