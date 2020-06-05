@@ -7,6 +7,11 @@ steps:
       
 - name: initialize aws plugin for terraform
   image: mateusmuller2/ansibleandterraform
+  environment:
+    AWS_ACCESS_KEY_ID:
+      from_secret: aws_access
+    AWS_SECRET_ACCESS_KEY:
+      from_secret: aws_secret
   commands:
   - terraform init
   
