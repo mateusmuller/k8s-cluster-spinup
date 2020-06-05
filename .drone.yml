@@ -34,6 +34,7 @@ steps:
       from_secret: aws_secret
     PRIVATE_KEY:
       from_secret: private_key
+    ANSIBLE_HOST_KEY_CHECKING: False
   commands:
   - mkdir -p ~/.ssh/
   - echo "$PRIVATE_KEY" > ~/.ssh/id_rsa

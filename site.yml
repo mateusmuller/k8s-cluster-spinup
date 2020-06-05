@@ -1,7 +1,5 @@
 - name: Configure Docker
   become: yes
   hosts: tag_name_k8s
-  vars:
-    ansible_host_key_checking: false
   roles:
     - docker
