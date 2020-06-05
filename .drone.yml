@@ -20,14 +20,14 @@ steps:
   commands:
   - terraform apply -auto-approve
 
-- name: deploy k8s cluster
-  image: mateusmuller2/ansibleandterraform
-  environment:
-    AWS_ACCESS_KEY_ID:
-      from_secret: aws_access
-    AWS_SECRET_ACCESS_KEY:
-      from_secret: aws_secret
-  commands:
-  - ansible-playbook -i ec2.py -u ubuntu site.yml
+# - name: deploy k8s cluster
+#   image: mateusmuller2/ansibleandterraform
+#   environment:
+#     AWS_ACCESS_KEY_ID:
+#       from_secret: aws_access
+#     AWS_SECRET_ACCESS_KEY:
+#       from_secret: aws_secret
+#   commands:
+#   - ansible-playbook -i ec2.py -u ubuntu site.yml
   
 
