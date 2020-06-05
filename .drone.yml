@@ -35,7 +35,9 @@ steps:
     PRIVATE_KEY:
       from_secret: private_key
   commands:
-  - ansible-playbook -i ec2.py -u ubuntu --private-key $PRIVATE_KEY site.yml
+  - echo "$PRIVATE_KEY" > ~/.ssh/id_rsa
+  - unset PRIVATE_KEY
+  - ansible-playbook -i ec2.py -u ubuntu --private-key ~/.ssh/id_rsa site.yml
 
   
 
