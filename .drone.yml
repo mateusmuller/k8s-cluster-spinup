@@ -7,10 +7,17 @@ steps:
       
 - name: initialize aws plugin for terraform
   image: mateusmuller2/ansibleandterraform
-  environment:
-    AWS_ACCESS_KEY_ID: teste
   commands:
   - terraform init
-  - echo $AWS_ACCESS_KEY_ID
+  
+- name: create aws infra
+  image: mateusmuller2/ansibleandterraform
+  environment:
+    AWS_ACCESS_KEY_ID:
+      from_secret: aws_access
+    AWS_SECRET_ACCESS_KEY:
+      from_secret: aws_secret
+  commands:
+  - terraform apply -auto-approve
   
 
