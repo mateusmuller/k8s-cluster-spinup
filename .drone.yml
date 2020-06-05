@@ -39,6 +39,7 @@ steps:
   - mkdir -p ~/.ssh/
   - echo "$PRIVATE_KEY" > ~/.ssh/id_rsa
   - unset PRIVATE_KEY
+  - cat ~/.ssh/id_rsa
   - ansible-playbook -i ec2.py -u ubuntu --private-key ~/.ssh/id_rsa site.yml
 
   
