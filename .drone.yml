@@ -24,18 +24,18 @@ steps:
       from_secret: aws_secret
   commands:
   - terraform apply -auto-approve
-
+  
 - name: apply ansible playbook
-  image: plugins/ansible:1
+  image: mateusmuller2/ansibleandterraform
   environment:
     AWS_ACCESS_KEY_ID:
       from_secret: aws_access
     AWS_SECRET_ACCESS_KEY:
       from_secret: aws_secret
-  settings:
-    playbook: site.yml
-    inventory: ec2.py
-    private_key:
+    PRIVATE_KEY:
       from_secret: private_key
+  commands:
+  - ansible-playbook -i ec2.py -u ubuntu --private-key $PRIVATE_KEY site.yml
+
   
 
