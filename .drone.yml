@@ -6,7 +6,7 @@ name: k8s-cluster
 steps:
       
 - name: initialize aws plugin for terraform
-  image: mateusmuller2/ansibleandterraform
+  image: mateusmuller2/ansibleandterraform:latest
   environment:
     AWS_ACCESS_KEY_ID:
       from_secret: aws_access
@@ -16,7 +16,7 @@ steps:
   - terraform init
   
 - name: create aws infra
-  image: mateusmuller2/ansibleandterraform
+  image: mateusmuller2/ansibleandterraform:latest
   environment:
     AWS_ACCESS_KEY_ID:
       from_secret: aws_access
@@ -26,7 +26,7 @@ steps:
   - terraform apply -auto-approve
   
 - name: apply ansible playbook
-  image: mateusmuller2/ansibleandterraform
+  image: mateusmuller2/ansibleandterraform:latest
   environment:
     AWS_ACCESS_KEY_ID:
       from_secret: aws_access
