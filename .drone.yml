@@ -26,7 +26,7 @@ steps:
   - terraform apply -auto-approve
 
 - name: apply ansible playbook
-  image: mateusmuller2/ansibleandterraform
+  image: plugins/ansible:1
   environment:
     AWS_ACCESS_KEY_ID:
       from_secret: aws_access
