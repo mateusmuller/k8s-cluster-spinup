@@ -1,3 +1,1 @@
-- name: test debug
-  debug:
-    msg: "{{ kubeadm_init_output }}"
+---
