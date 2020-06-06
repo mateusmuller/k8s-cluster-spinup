@@ -1,12 +1,14 @@
+---
 - name: Add k8s apt key
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     state: present
 
 - name: Add k8s repository
-  update_cache: yes
-  state: present
-  repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+  apt_repository:
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+    update_cache: yes
 
 - name: Install k8s packages
   apt:
