@@ -3,3 +3,4 @@
   hosts: tag_name_k8s
   roles:
     - docker
+    - k8s
