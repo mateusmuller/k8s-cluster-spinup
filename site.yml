@@ -1,6 +1,18 @@
-- name: Configure Docker
+# - name: Install k8s and docker packages
+#   become: yes
+#   hosts: tag_name_k8s
+#   roles:
+#     - docker
+#     - k8s-all
+
+- name: Setup master node
   become: yes
-  hosts: tag_name_k8s
+  hosts: tag_type_master
   roles:
-    - docker
-    - k8s
+    - k8s-master
+
+# - name: Setup worker node
+#   become: yes
+#   hosts: tag_type_worker
+#   roles:
+#     - k8s-worker

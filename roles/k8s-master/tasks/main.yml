@@ -1,0 +1,16 @@
+- name: Destroy cluster before starting again
+  command: kubeadm reset -f
+
+- name: Initialize k8s cluster
+  command: kubeadm init
+  register: kubeadm_init_output
+
+- name: Create file with output
+  copy:
+    content: "{{ kubeadm_init_output.stdout }}"
+    dest: /root/kubeadminit
+
+- name: Install pod network
+  command: kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+  environment:
+    KUBECONFIG: /etc/kubernetes/admin.conf

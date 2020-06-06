@@ -32,7 +32,7 @@ resource "aws_security_group" "k8s-sg" {
 
 } 
 
-resource "aws_instance" "kubernetes" {
+resource "aws_instance" "kubernetes-worker" {
   ami           = "ami-085925f297f89fce1"
   instance_type = "t3.medium"
   key_name = "k8s-key"
@@ -44,7 +44,7 @@ resource "aws_instance" "kubernetes" {
   security_groups = ["${aws_security_group.k8s-sg.name}"]
 }
 
-resource "aws_instance" "kubernetes" {
+resource "aws_instance" "kubernetes-master" {
   ami           = "ami-085925f297f89fce1"
   instance_type = "t3.medium"
   key_name = "k8s-key"
