@@ -11,8 +11,8 @@
   roles:
     - k8s-master
 
-# - name: Setup worker node
-#   become: yes
-#   hosts: tag_type_worker
-#   roles:
-#     - k8s-worker
+- name: Setup worker node
+  become: yes
+  hosts: tag_type_worker
+  roles:
+    - k8s-worker
